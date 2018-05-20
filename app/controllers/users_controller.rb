@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      flash[:success] = "トラベラーとして登録しました。"
+      flash[:success] = "あなたをトラベラーとして登録しました。"
       redirect_to root_path
     else
       flash.now[:danger] = "登録に失敗しました。"

@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li>旅行登録</li>
+          <li><%= link_to "旅行登録",new_tripost_path %></li>
           <li><%= link_to "マイページ",user_path(current_user) %></li>
           <li><%= link_to "ログアウト",logout_path, method: :delete %></li>
         <% else %>

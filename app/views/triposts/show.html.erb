@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+
+<li><%= @tripost.title %></li>
+
+  <% if current_user == @tripost.user %>
+    <%= link_to '旅行を編集する', edit_tripost_path(@tripost), class: 'btn btn-default' %>
+    <%= link_to 'ルートを編集する', edit_tripost_path(@tripost), class: 'btn btn-default' %>
+  <% end %>
+  
+  </div>
+    </div>

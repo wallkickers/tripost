@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Long.create(name: '日帰り')
+Long.create(name: '1泊2日')
+Long.create(name: '2泊3日~')
+
+Money.create(name: '~5,000円')
+Money.create(name: '~20,000円')
+Money.create(name: '30,000円~')
+
+Status.create(name: '投稿')
+Status.create(name: '下書き')

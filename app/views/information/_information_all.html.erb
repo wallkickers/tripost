@@ -1,0 +1,25 @@
+<ul class="media-list">
+  <% microposts.each do |micropost| %>
+    <li class="media">
+      <div class="media-body">
+        <div>
+          <p><%= micropost.id %></p>
+          <p><%= micropost.time %></p>
+          <p><%= micropost.place %></p>
+          <p><%= micropost.place_comment %></p>
+          <p><%= micropost.place_time %></p>
+          <p><%= micropost.move_by %></p>
+          <p><%= micropost.move_start %></p>
+          <p><%= micropost.move_goal %></p>
+          <p><%= micropost.move_time %></p>
+          
+          <%# if current_user == micropost.user %>
+            <%= link_to "編集", edit_information_path(micropost), class: "btn btn-primary btn-xs" %>
+            <%= link_to "削除", micropost , method: :delete, data: {confirm: "You sure?"}, class: "btn btn-danger btn-xs" %>
+          <%# end  %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%# paginate microposts %>
+</ul>
