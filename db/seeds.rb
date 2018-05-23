@@ -7,13 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Long.create(name: '日帰り')
-Long.create(name: '1泊2日')
-Long.create(name: '2泊3日~')
+Theme.create(type: "Theme ",name: '一人旅')
+Theme.create(type: "Theme ",name: '友人')
+Theme.create(type: "Theme ",name: '親子')
+Theme.create(type: "Theme ",name: '家族旅行')
 
-Money.create(name: '~5,000円')
-Money.create(name: '~20,000円')
-Money.create(name: '30,000円~')
-
-Status.create(name: '投稿')
-Status.create(name: '下書き')
+Theme.create(type: 'Destination',name: '北海道')
+Theme.create(type: 'Destination',name: '東北')
+Theme.create(type: 'Destination',name: '関東')
+Theme.create(type: 'Destination',name: '中部')
+Theme.create(type: 'Destination',name: '近畿')
+Theme.create(type: 'Destination',name: '中国')
+Theme.create(type: 'Destination',name: '四国')
+Theme.create(type: 'Destination',name: '九州')
