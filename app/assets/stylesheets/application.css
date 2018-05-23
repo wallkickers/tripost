@@ -93,6 +93,7 @@ body{
 /* サムネイル画像 */
 .thumb_image{
   width:150px;
+  margin-left: 10px;
 }
 
 

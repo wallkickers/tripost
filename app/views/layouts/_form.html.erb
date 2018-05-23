@@ -19,6 +19,7 @@
     <%= f.file_field :image %>
     <% if @tripost.image? %>
 　　  <%= image_tag @tripost.image.thumb.url %>
+　　  <p>選択していた画像</p>
 　   <% else %>
 　　  <%= image_tag 'noimage.gif' %>
 　   <% end %>
@@ -57,6 +58,7 @@
     <%# hidden_field_tag :image, params[:image] %>
   <%# end %>
 
+  <%= f.hidden_field :image_cache %>
   <%= hidden_field_tag :id, params[:id] %>
   
   <%= f.submit '登録',class:"btn btn-primary" %>

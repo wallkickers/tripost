@@ -49,7 +49,7 @@ class TripostsController < ApplicationController
   
   private
   def tripost_params
-    params.require(:tripost).permit(:image, :title,:user_id, :theme_id, :destination_id, :long_id, :money_id, :status_id)
+    params.require(:tripost).permit(:image, :image_cache, :title,:user_id, :theme_id, :destination_id, :long_id, :money_id, :status_id)
   end
   
   def correct_user
