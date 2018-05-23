@@ -61,4 +61,8 @@ group :production do
 end
 
 gem 'carrierwave'
+gem 'rmagick'
 
+gem 'aws-sdk'
+gem 'mini_magick'
+gem 'refile', require: ['refile/rails', 'refile/image_processing']

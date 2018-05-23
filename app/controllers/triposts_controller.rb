@@ -9,7 +9,7 @@ class TripostsController < ApplicationController
 
   def new
     @tripost = Tripost.new
-    @triposts = current_user.triposts
+    @triposts = current_user.triposts.all.order("created_at desc")
   end
 
   def create
@@ -26,7 +26,7 @@ class TripostsController < ApplicationController
 
   def edit
     @tripost = Tripost.find(params[:id])
-    @triposts = current_user.triposts
+    @triposts = current_user.triposts.all.order("created_at desc")
   end
 
   def update

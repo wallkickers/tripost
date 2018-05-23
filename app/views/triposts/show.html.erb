@@ -1,6 +1,12 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2 media_back">
-
+  <div class="col-md-8 col-md-offset-2 media_back tripost_content">
+  
+  <% if @tripost.image? %>
+　　<%= image_tag @tripost.image.url,class:"tripost_image" %>
+　<% else %>
+　　<%= image_tag 'noimage.gif' %>
+　<% end %>
+  
   <h1 class="tripost_h1"><%= @tripost.title %></h1>
   
   <div class="category">
@@ -8,29 +14,31 @@
     <div class="label label_show"><%= @tripost.theme.name %><% if !@tripost.theme.name.nil? %><% end %></div>
   <%# end %>
   
-  <% if !@tripost.destination.name.nil? %>
+  <%# if !@tripost.destination.name.nil? %>
     <div class="label label_show"><%= @tripost.destination.name %></div>
-  <% end %>
+  <%# end %>
       
-  <% if !@tripost.long.name.nil? %>
+  <%# if !@tripost.long.name.nil? %>
     <div class="label label_show"><%= @tripost.long.name %></div>
-  <% end %>  
+  <%# end %>  
     
-  <% if !@tripost.money.name.nil? %>
+  <%# if !@tripost.money.name.nil? %>
     <div class="label label_show"><%= @tripost.money.name %></div>
-  <% end %>
-
-  <% if !@tripost.status.name.nil? %>
-    <div class="label label_show"><%= @tripost.status.name %></div>
-  <% end %>
+  <%# end %>
   </div>
 
   <%= render 'information/information_tripost', information: @information %>
   
   <% if current_user == @tripost.user %>
     <div class="btn_show">
-    <%= link_to '旅行を編集する', edit_tripost_path(@tripost), class: 'btn btn-default' %>
-    <%= link_to "ルートを編集する", new_information_path(id: @tripost.id), class: "btn btn-default" %>
+      <% if @tripost.status.name == "投稿" %>
+        <div class="label label-danger label_tripost"><%= @tripost.status.name %></div>
+      <% else %>
+        <div class="label label-primary label_tripost"><%= @tripost.status.name %></div>
+      <% end %>
+
+      <%= link_to '旅行を編集する', edit_tripost_path(@tripost), class: 'btn btn-default' %>
+      <%= link_to "ルートを編集する", new_information_path(id: @tripost.id), class: "btn btn-default" %>
     </div>
   <% end %>
   

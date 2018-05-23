@@ -38,7 +38,8 @@ body{
 }
 
 .btn_show{
-  margin:20px 0;
+  margin:40px 0 20px 0;
+  float:right;
 }
 
 /* カテゴリーラベル_2 */
@@ -55,6 +56,15 @@ body{
 
 .btn_tripost{
   margin:5px 0 0 0 ;
+}
+
+.tripost_image{
+  margin:20px auto 5px auto;
+  
+  
+}
+
+.tripost_content{
 }
 
 
@@ -80,9 +90,16 @@ body{
   float: right;
 }
 
+/* サムネイル画像 */
+.thumb_image{
+  width:150px;
+}
+
+
 .media_back{
   background-color: white;
 }
+
 
 /* ■ユーザー詳細画面関連  */
 
@@ -90,7 +107,7 @@ body{
   background-color: white;
   margin: 0 auto;
   width: 80%;
-  height: 600px;
+  height: 80%;
   padding-top: 10px;
 }
 

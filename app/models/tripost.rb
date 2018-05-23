@@ -1,6 +1,6 @@
 class Tripost < ApplicationRecord
-  belongs_to :user ,dependent: :destroy
-  has_many :information
+  belongs_to :user
+  has_many :information, dependent: :destroy
   belongs_to :theme
   belongs_to :destination
   belongs_to :long
@@ -10,4 +10,5 @@ class Tripost < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 50 }
   
+  mount_uploader :image, ImageUploader
 end

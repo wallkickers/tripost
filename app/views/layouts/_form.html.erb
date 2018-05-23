@@ -1,4 +1,3 @@
-
 <%= form_for(task) do |f| %>
   <% if task.errors.any? %>
     <div class="alert alert-warning"  id="error_explanation">
@@ -16,10 +15,15 @@
         
   
   <div class="form-group">
-    <%# f.label :image, '写真を選択してください' %>
-    <%# f.select :image,[写真が入る] ,class:"form-control" %>    
+    <%= f.label :image, '旅行の画像はありますか？' %>
+    <%= f.file_field :image %>
+    <% if @tripost.image? %>
+　　  <%= image_tag @tripost.image.thumb.url %>
+　   <% else %>
+　　  <%= image_tag 'noimage.gif' %>
+　   <% end %>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :title, '今回の旅行は？' %>
     <%= f.text_field :title,class:"form-control" %>    
@@ -49,7 +53,12 @@
     <%= f.select :status_id, Status.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
   </div>
 
+  <%# unless :image == nil %>
+    <%# hidden_field_tag :image, params[:image] %>
+  <%# end %>
 
+  <%= hidden_field_tag :id, params[:id] %>
+  
   <%= f.submit '登録',class:"btn btn-primary" %>
 <% end %>
   

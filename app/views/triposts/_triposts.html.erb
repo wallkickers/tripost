@@ -3,7 +3,11 @@
     <div class="panel panel-default">
       <li class="media">
       <div class="media-left">
-        <img class="media-object img-rounded" src="<%= gravatar_url(micropost.user, options = { size: 50 }) %>" alt="">
+          <% if micropost.image? %>
+　　        <%= image_tag micropost.image.thumb.url, class:"thumb_image" %>
+　         <% else %>
+　　        <%# image_tag 'noimage.gif',class:"thumb_image" %>
+　        <% end %>
       </div>
       <div class="media-body">
         <div>
@@ -15,6 +19,12 @@
           <div class="label label-default label_tripost"><%= micropost.destination.name %></div>
           <div class="label label-default label_tripost"><%= micropost.long.name %></div>
           <div class="label label-default label_tripost"><%= micropost.money.name %></div>
+          <% if micropost.status.name == "投稿" %>
+            <div class="label label-danger label_tripost"><%= micropost.status.name %></div>
+          <% else %>
+            <div class="label label-primary label_tripost"><%= micropost.status.name %></div>
+          <% end %>
+
           <div class="btn_tripost">
           <% if current_user == micropost.user %>
             <%# link_to "詳細", micropost ,:target=>["_blank"], class: "btn btn-outline-primary btn-xs" %>
