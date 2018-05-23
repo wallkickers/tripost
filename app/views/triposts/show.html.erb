@@ -1,12 +1,38 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-2">
+  <div class="col-md-8 col-md-offset-2 media_back">
 
-<li><%= @tripost.title %></li>
+  <h1 class="tripost_h1"><%= @tripost.title %></h1>
+  
+  <div class="category">
+  <%# if !@tripost.theme.name.nil? %>
+    <div class="label label_show"><%= @tripost.theme.name %><% if !@tripost.theme.name.nil? %><% end %></div>
+  <%# end %>
+  
+  <% if !@tripost.destination.name.nil? %>
+    <div class="label label_show"><%= @tripost.destination.name %></div>
+  <% end %>
+      
+  <% if !@tripost.long.name.nil? %>
+    <div class="label label_show"><%= @tripost.long.name %></div>
+  <% end %>  
+    
+  <% if !@tripost.money.name.nil? %>
+    <div class="label label_show"><%= @tripost.money.name %></div>
+  <% end %>
 
+  <% if !@tripost.status.name.nil? %>
+    <div class="label label_show"><%= @tripost.status.name %></div>
+  <% end %>
+  </div>
+
+  <%= render 'information/information_tripost', information: @information %>
+  
   <% if current_user == @tripost.user %>
+    <div class="btn_show">
     <%= link_to '旅行を編集する', edit_tripost_path(@tripost), class: 'btn btn-default' %>
-    <%= link_to 'ルートを編集する', edit_tripost_path(@tripost), class: 'btn btn-default' %>
+    <%= link_to "ルートを編集する", new_information_path(id: @tripost.id), class: "btn btn-default" %>
+    </div>
   <% end %>
   
-  </div>
-    </div>
+</div>
+</div>

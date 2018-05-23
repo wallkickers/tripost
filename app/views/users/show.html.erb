@@ -1,8 +1,21 @@
-<div class="user-profile">
+<div class="user-profile media_back_user">
   <div class="icon text-center">
     <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
   </div>
   <div class="name text-center">
     <h1><%= @user.name %></h1>
+    <p><%= link_to "旅行を登録する",new_tripost_path ,class: "btn btn-primary" %></p>
   </div>
+  
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <li>マイトラベル</li>
+      </ul>
+        <div class="triplist">
+          <%= render 'triposts/triposts', microposts: @triposts %>
+        </div>
+    </div>
+  </div>
+  
 </div>

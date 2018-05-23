@@ -1,54 +1,58 @@
-<div class="row">
-  <div class="col-sm-offset-2 col-sm-8 col-lg-offset-3 col-lg-6">
+
+<%= form_for(task) do |f| %>
+  <% if task.errors.any? %>
+    <div class="alert alert-warning"  id="error_explanation">
+      <ul>
+        <% task.errors.full_messages.each do |task| %>
+          <li><%= task %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   
-    <%= form_for(task) do |f| %>
-      <% if task.errors.any? %>
-        <div class="alert alert-warning"  id="error_explanation">
-          <ul>
-            <% task.errors.full_messages.each do |task| %>
-              <li><%= task %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      
-      <div class="form-group">
-        <%# f.label :image, '写真を選択してください' %>
-        <%# f.select :image,[写真が入る] ,class:"form-control" %>    
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :title, '今回の旅行は？' %>
-        <%= f.text_field :title,class:"form-control" %>    
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :theme_id, '旅行のテーマはありますか？' %>
-        <%= f.select :theme_id, Theme.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
-      </div>
-    
-      <div class="form-group">
-        <%= f.label :destination_id, "場所はどこですか？" %>
-        <%= f.select :destination_id, Destination.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :long_id, '期間はどのくらいですか？' %>
-        <%= f.select :long_id, Long.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :money_id, '予算はいくらですか？' %>
-        <%= f.select :money_id, Money.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
-      </div>
-    
-      <div class="form-group">
-        <%= f.select :status_id, Status.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
-      </div>
-    
-    
-      <%= f.submit '登録',class:"btn btn-primary" %>
-    <% end %>
+  <div class="panel panel-success">
+    <div class="panel-heading">旅行を登録する</div>
+      <div class="panel-body">
+        
+  
+  <div class="form-group">
+    <%# f.label :image, '写真を選択してください' %>
+    <%# f.select :image,[写真が入る] ,class:"form-control" %>    
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :title, '今回の旅行は？' %>
+    <%= f.text_field :title,class:"form-control" %>    
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :theme_id, '旅行のテーマはありますか？' %>
+    <%= f.select :theme_id, Theme.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :destination_id, "場所はどこですか？" %>
+    <%= f.select :destination_id, Destination.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :long_id, '期間はどのくらいですか？' %>
+    <%= f.select :long_id, Long.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :money_id, '予算はいくらですか？' %>
+    <%= f.select :money_id, Money.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.select :status_id, Status.all.map{|t| [t.name, t.id] }, {include_blank: false} %>
+  </div>
+
+
+  <%= f.submit '登録',class:"btn btn-primary" %>
+<% end %>
+  
   
   </div>
-</div>
+      </div>

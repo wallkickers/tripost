@@ -1,13 +1,13 @@
 <% information.each do |information| %>
 
   <div class="panel panel-default">
-    <div class="panel-heading"><%= information.time %> <%= information.place %> <%= information.place_time %><%= link_to "削除", information , method: :delete, data: {confirm: "You sure?"}, class: "btn btn-danger btn-xs information_btn" %><%= link_to "編集", edit_information_path(information), class: "btn btn-primary btn-xs information_btn" %></div>
+    <div class="panel-heading"><%= information.time %> <%= information.place %> <%= information.place_time %></div>
       <div class="panel-body">
         <p><%= information.place_comment %></p>
       </div>
   </div>
     
-  <% unless information.move_start == nil && information.move_goal == nil && information.move_time == nil %>
+  <% unless information.move_start == "" && information.move_goal == "" && information.move_time == "" %>
     <div class="media">
       <div class="media-body">
         <% if information.move_by == "車" %>

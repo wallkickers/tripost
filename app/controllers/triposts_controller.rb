@@ -4,6 +4,7 @@ class TripostsController < ApplicationController
   
   def show
     @tripost = Tripost.find(params[:id])
+    @information = Tripost.find(params[:id]).information.all.order("created_at asc")
   end
 
   def new
@@ -36,7 +37,7 @@ class TripostsController < ApplicationController
       redirect_to new_tripost_path
     else
       flash.now[:danger] = "旅行を更新できませんでした"
-      render root_url
+      render "edit"
     end
   end
 
@@ -48,7 +49,7 @@ class TripostsController < ApplicationController
   
   private
   def tripost_params
-    params.require(:tripost).permit(:image, :title,:user_id,:theme_id)
+    params.require(:tripost).permit(:image, :title,:user_id, :theme_id, :destination_id, :long_id, :money_id, :status_id)
   end
   
   def correct_user

@@ -4,6 +4,7 @@ class InformationController < ApplicationController
   end
 
   def new
+    @tripost = Tripost.find_by(id: params[:id])
     @information = Tripost.find_by(id: params[:id]).information.build
     @information_all = Tripost.find_by(id: params[:id]).information
   end
@@ -41,7 +42,8 @@ class InformationController < ApplicationController
 
   def edit
     @information = Information.find(params[:id])
-    #@information_all = Tripost.find_by(id: params[:id]).information
+    @Tripost = @information.tripost
+    @information_all = @Tripost.information
   end
   
   private
