@@ -1,24 +1,26 @@
 
   <ul class="media-list">
     <% microposts.each do |micropost| %>
-        <div class="panel panel-default">
-          <li class="media">
-            <div class="media-left">
-              <% if micropost.image? %>
-  　　          <%= image_tag micropost.image.thumb.url,class:"thumb_image" %>
-              <% end %>
-            </div>
-            <div class="media-body">
-              <div>
-                <%= link_to micropost.user.name, user_path(micropost.user) %> <span class="text-muted">posted at <%= micropost.created_at %></span>
+        <% if micropost.status.name == "投稿" %>
+          <div class="panel panel-default">
+            <li class="media">
+              <div class="media-left">
+                <% if micropost.image? %>
+  　　            <%= image_tag micropost.image.thumb.url,class:"thumb_image" %>
+                <% end %>
               </div>
-              <div>
-                <p><%= micropost.title %></p>
-                  <%= link_to "詳細", tripost_path(micropost), class: "btn btn-success btn-xs" %>
+              <div class="media-body">
+                <div>
+                  <span class="text-muted">posted by <%= link_to micropost.user.name, user_path(micropost.user) %></span><span class="text-muted"> posted at <%= micropost.created_at.strftime('%Y/%m/%d') %></span>
+                </div>
+                <div>
+                  <p><%= micropost.title %></p>
+                    <%= link_to "詳細", tripost_path(micropost), class: "btn btn-success btn-xs" %>
+                </div>
               </div>
-            </div>
-          </li>
-        </div>
+            </li>
+          </div>
+        <% end %>
     <% end %>
     <%# paginate microposts %>
   </ul>

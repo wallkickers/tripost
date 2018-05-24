@@ -23,3 +23,5 @@ module Triposts
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+config.time_zone = 'Asia/Tokyo'

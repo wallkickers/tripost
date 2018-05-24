@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:success] = "あなたをトラベラーとして登録しました。"
-      redirect_to root_path
+      redirect_to login_path
     else
       flash.now[:danger] = "登録に失敗しました。"
       render :new
