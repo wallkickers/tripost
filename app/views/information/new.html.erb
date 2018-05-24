@@ -1,14 +1,14 @@
 <div class="row">
   <h1>ルート管理画面</h1>
   
-
-  <div class="col-sm-4">
-    <%= render "layouts/form.information", task: @information %>
-  </div>
-
-  <div class="col-sm-8 media_back">
+  <div class="col-sm-12 col-md-8 media_back information_back">
     <h1 class="root_h1"><%= @tripost.title %></h1>
     <%= render 'information_all', information: @information_all %>
   </div>
+
+  <div class="col-sm-12 col-md-4">
+    <%= render "layouts/form.information", task: @information %>
+  </div>
+
   
 </div>

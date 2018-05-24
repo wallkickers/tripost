@@ -1,13 +1,14 @@
 <div class="row">
   <h1>旅行管理画面</h1>
 
-  <div class="col-sm-4">
+  <div class="col-sm-12 col-md-4">
+    <%= render 'triposts/triposts', microposts: @triposts %>
+  </div>
+
+  <div class="col-sm-12 col-md-8">
     <%= render "layouts/form", task: @tripost %>
   </div>
 
-  <div class="col-sm-8">
-    <%= render 'triposts/triposts', microposts: @triposts %>
-  </div>
 </div>
 
 

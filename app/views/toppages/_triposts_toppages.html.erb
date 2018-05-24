@@ -6,9 +6,6 @@
             <div class="media-left">
               <% if micropost.image? %>
   　　          <%= image_tag micropost.image.thumb.url,class:"thumb_image" %>
-  　           <% else %>
-  　　          <%# image_tag 'noimage.gif',class:"thumb_image" %>
-                <img class="media-object img-rounded" src="<%= gravatar_url(micropost.user, options = { size: 50 }) %>" alt="">
               <% end %>
             </div>
             <div class="media-body">

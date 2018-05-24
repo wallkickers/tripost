@@ -3,8 +3,8 @@
   
   <% if @tripost.image? %>
 　　<%= image_tag @tripost.image.url,class:"tripost_image" %>
-　<% else %>
-　　<%= image_tag 'noimage.gif' %>
+　<%# else %>
+　　<%# image_tag 'noimage.gif' %>
 　<% end %>
   
   <h1 class="tripost_h1"><%= @tripost.title %></h1>
@@ -17,7 +17,7 @@
   <%# if !@tripost.destination.name.nil? %>
     <div class="label label_show"><%= @tripost.destination.name %></div>
   <%# end %>
-      
+
   <%# if !@tripost.long.name.nil? %>
     <div class="label label_show"><%= @tripost.long.name %></div>
   <%# end %>  
@@ -25,6 +25,7 @@
   <%# if !@tripost.money.name.nil? %>
     <div class="label label_show"><%= @tripost.money.name %></div>
   <%# end %>
+
   </div>
 
   <%= render 'information/information_tripost', information: @information %>
