@@ -24,4 +24,3 @@ module Triposts
   end
 end
 
-config.time_zone = 'Asia/Tokyo'
